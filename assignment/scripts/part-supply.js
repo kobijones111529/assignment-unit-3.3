@@ -28,11 +28,12 @@ console.log('5. Adding 25 to supplyChanges.');
 //    - if the value is 0, log 'No Change.'
 //    - if the value is negative, format the log as 'Removed x parts.' 
 console.log('6. Showing supplyChanges...');
-for (const change of supplyChanges) {
+for (let i = 0; i < supplyChanges.length; i++) {
+  const change = supplyChanges[i];
   if (change > 0) {
     console.log(`Added ${change} parts.`);
   } else if (change === 0) {
-    console.log(`No Change.`);
+    console.log('No Change.');
   } else {
     console.log(`Removed ${Math.abs(change)} parts.`);
   }
@@ -42,10 +43,29 @@ for (const change of supplyChanges) {
 console.log('---  Stretch Goals  ---');
 // 7. Rewrite the `for` loop from #6 as a `for of` loop. 
 console.log('7. Showing supplyChanges with "for of" loop');
+for (const change of supplyChanges) {
+  if (change > 0) {
+    console.log(`Added ${change} parts.`);
+  } else if (change === 0) {
+    console.log('No Change.');
+  } else {
+    console.log(`Removed ${Math.abs(change)} parts.`);
+  }
+}
 
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
-console.log('8. Total supplies available is:');
+{
+  let supplies = 0;
+  for (const change of supplyChanges) {
+    supplies += change;
+  }
+  console.log('8. Total supplies available is:', supplies);
+}
+
+// alternatively
+
+console.log('8. Total supplies available is:', supplyChanges.reduce((a, b) => a + b));
 
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
@@ -54,3 +74,21 @@ console.log('8. Total supplies available is:');
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
 console.log('9. Filling boxes with a "while" loop');
+{
+  let partsRemaining = 572;
+  let filledBoxes = 0;
+  const boxCapacity = 7;
+  while (partsRemaining >= boxCapacity) {
+    partsRemaining -= boxCapacity;
+    filledBoxes++;
+  }
+  console.log(`Filled ${filledBoxes} boxes with ${partsRemaining} parts left over`);
+}
+
+// alternatively
+
+{
+  const parts = 572;
+  const boxCapacity = 7;
+  console.log(`Filled ${Math.floor(parts / boxCapacity)} boxes with ${parts % boxCapacity} parts left over`);
+}
