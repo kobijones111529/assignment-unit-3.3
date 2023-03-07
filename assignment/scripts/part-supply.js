@@ -28,7 +28,15 @@ console.log('5. Adding 25 to supplyChanges.');
 //    - if the value is 0, log 'No Change.'
 //    - if the value is negative, format the log as 'Removed x parts.' 
 console.log('6. Showing supplyChanges...');
-
+for (const change of supplyChanges) {
+  if (change > 0) {
+    console.log(`Added ${change} parts.`);
+  } else if (change === 0) {
+    console.log(`No Change.`);
+  } else {
+    console.log(`Removed ${Math.abs(change)} parts.`);
+  }
+}
 
 // STRETCH GOALS
 console.log('---  Stretch Goals  ---');
