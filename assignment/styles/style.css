@@ -1,1 +1,35 @@
 /* give your assignment a fun background color */
+
+body {
+  margin: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(103,255,141,1), rgba(174,255,209,1), rgba(154,241,229,1), rgba(163,233,255,1),
+    rgba(165,192,250,1), rgba(179,164,228,1), rgba(255,165,239,1), rgba(254,201,189,1), rgba(230,235,184,1),
+    rgba(103,255,141,1), rgba(174,255,209,1), rgba(154,241,229,1), rgba(163,233,255,1),
+    rgba(165,192,250,1), rgba(179,164,228,1), rgba(255,165,239,1), rgba(254,201,189,1), rgba(230,235,184,1)
+  );
+  background-size: 100% calc(3400%);
+  background-position: 0% 0%;
+  animation: gradient 20s linear infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    /* 100% / (scale - 1) * (scale / total_sections * sections_before_repitition) */
+    background-position: 0% calc(100% / 33 * (34 / 17 * 9));
+  }
+}
+
+header {
+  padding: 12px;
+}
+
+h1 {
+  margin: 0;
+}
